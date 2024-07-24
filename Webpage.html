@@ -3,110 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BNMIT Home Page</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Random Info Display</title>
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #003366;
-            color: #fff;
-            padding: 15px 0;
+            background-color: #f4f4f4;
         }
         .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-        }
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-        }
-        nav ul li {
-            display: inline;
-            margin-left: 20px;
-        }
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .hero {
-            background: url('bnmit-campus.jpg') no-repeat center center/cover;
-            height: 500px;
-            position: relative;
-            text-align: center;
-            color: #fff;
-        }
-        .hero h1 {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 3rem;
-        }
-        .info {
-            padding: 50px 0;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
-        .info h2 {
-            margin-bottom: 20px;
+        .random-info {
+            font-size: 1.2em;
+            margin: 10px 0;
         }
-        .info p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-        footer {
-            background-color: #003366;
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
             color: #fff;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 20px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">
-                    <h1>BNMIT</h1>
-                </div>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Academics</a></li>
-                    <li><a href="#">Admissions</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <div class="container">
+        <div class="random-info" id="randomInfo">Click the button to get random info!</div>
+        <button onclick="displayRandomInfo()">Get Random Info</button>
+    </div>
 
-    <section class="hero">
-        <h1>Welcome to BNMIT</h1>
-    </section>
+    <script>
+        const infoArray = [
+            "The Eiffel Tower can be 15 cm taller during the summer.",
+            "Bananas are berries, but strawberries aren't.",
+            "Honey never spoils.",
+            "A group of flamingos is called a 'flamboyance'.",
+            "Octopuses have three hearts.",
+            "There are more stars in the universe than grains of sand on Earth.",
+            "The shortest war in history lasted 38 to 45 minutes.",
+            "Wombat poop is cube-shaped."
+        ];
 
-    <section class="info">
-        <div class="container">
-            <h2>About BNMIT</h2>
-            <p>BNM Institute of Technology is a premier institution established with the objective of imparting quality education. Our mission is to provide an environment that fosters academic excellence and holistic growth.</p>
-            <p>We offer a wide range of undergraduate and postgraduate programs in engineering, management, and more. Our state-of-the-art campus, experienced faculty, and innovative teaching methods ensure that our students are well-prepared for the challenges of the future.</p>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 BNMIT. All Rights Reserved.</p>
-        </div>
-    </footer>
+        function displayRandomInfo() {
+            const randomIndex = Math.floor(Math.random() * infoArray.length);
+            document.getElementById('randomInfo').innerText = infoArray[randomIndex];
+        }
+    </script>
 </body>
 </html>
